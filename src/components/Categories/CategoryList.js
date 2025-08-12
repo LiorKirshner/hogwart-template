@@ -5,14 +5,16 @@ import CategoryCard from "./CategoryCard";
 const CategoryList = ({ categories }) => {
   return (
     <div className="category-list">
-      {categories.map((category) => (
-        <Link
-          key={category.id || category.name}
-          to={`/wiki/${category.routeLink}`}
-        >
-          <CategoryCard id={category.routeLink} categoryData={category} />
-        </Link>
-      ))}
+      {categories
+        .filter((category) => category.routeLink)
+        .map((category) => (
+          <Link
+            key={category.id || category.name}
+            to={`/wiki/${category.routeLink}`}
+          >
+            <CategoryCard id={category.routeLink} categoryData={category} />
+          </Link>
+        ))}
     </div>
   );
 };

@@ -1,10 +1,12 @@
-import React from 'react';
-import { useParams } from 'react-router';
-import './EntityDescription.css'
+import React from "react";
+import { useParams } from "react-router-dom";
+import "./EntityDescription.css";
 
 const EntityDescription = ({ getCategoryData }) => {
   const { entityName, category } = useParams();
-  const entity = getCategoryData(category).find(entity => entity.name === entityName);
+  const entity = getCategoryData(category).find(
+    (entity) => entity.name === entityName
+  );
   const { img, level, description } = entity;
 
   return (
@@ -15,6 +17,6 @@ const EntityDescription = ({ getCategoryData }) => {
       <p className="desc-card-description">{description}</p>
     </div>
   );
-}
+};
 
 export default EntityDescription;

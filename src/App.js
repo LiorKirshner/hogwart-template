@@ -7,6 +7,7 @@ import HogwartNavbar from "./components/Header/HogwartNavbar";
 import Entities from "./components/Entities/Entities";
 import EntityDescription from "./components/Entities/EntityDescription";
 import About from "./components/About";
+import Entity from "./components/Entities/Entity";
 
 const App = (props) => {
   const [categories, setCategories] = useState(CATEGORIES);
@@ -31,6 +32,10 @@ const App = (props) => {
         <Route
           path="/wiki/:category"
           element={<Entities getCategoryData={getCategoryData} />}
+        />
+        <Route
+          path="/wiki/:category/:entityName"
+          element={<EntityDescription getCategoryData={getCategoryData} />}
         />
       </Routes>
     </BrowserRouter>
